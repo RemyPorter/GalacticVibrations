@@ -5,13 +5,21 @@ function smoothstep(edge0, edge1, x) {
 
 function draw() {
   background(0);
+  if (millis() < 5000) {
+    let o = sin(smoothstep(0, 5000, millis()) * Math.PI);
+    noStroke();
+    fill(255, 255, 255, o*255);
+    textAlign(CENTER, CENTER);
+    textSize(min(height/10, width/20));
+    text("Touch to Tune", width/2, height/2);
+  }
   translate(width/2,height/2);
-  steps = height/2;
+  steps = min(width, height)/2;
   stroke(255);
   strokeWeight(2);
   noFill();
-  let mx = mouseX/width*1000;
-  let my = mouseY/height*1000;
+  let mx = (mouseX || width/2)/width*1000;
+  let my = (mouseY || height/2)/height*1000;
   beginShape();
   vertex(0, 0, 0);
   for (let i = 0; i < steps/2.5; i++) {
