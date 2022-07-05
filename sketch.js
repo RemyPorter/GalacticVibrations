@@ -1,3 +1,8 @@
+//disable scrolling on iOS
+document.addEventListener('touchstart', function (e) {
+  e.preventDefault();
+});
+
 function smoothstep(edge0, edge1, x) {
   t = constrain((x - edge0)/(edge1 - edge0), 0.0, 1.0);
   return t * t * (3.0 - 2.0 * t);
