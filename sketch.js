@@ -14,7 +14,7 @@ function draw() {
     text("Touch to Tune", width/2, height/2);
   }
   translate(width/2,height/2);
-  steps = min(width, height)/2;
+  steps = min(width, height)/4.5;
   stroke(255);
   strokeWeight(2);
   noFill();
@@ -22,7 +22,7 @@ function draw() {
   let my = (mouseY || height/2)/height*1000;
   beginShape();
   vertex(0, 0, 0);
-  for (let i = 0; i < steps/2.5; i++) {
+  for (let i = 0; i < steps/4.5; i++) {
     let radius = smoothstep(0, steps/2.5, i) * height;
     let x = sin(frameCount*i/mx)*(radius);
     let y = cos(frameCount*i/my)*(radius);
